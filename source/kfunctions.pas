@@ -811,7 +811,7 @@ uses
   , KWideWinProcs
 {$ENDIF}
 {$IFDEF FPC}
-  , LConvEncoding
+  , LConvEncoding, lazUTF8
 {$ENDIF}
   , KMemo;
 
@@ -2562,7 +2562,7 @@ end;
 function UnicodeUpperCase(const AText: TKString): TKString;
 begin
 {$IFDEF FPC}
-  Result := LCLProc.UTF8UpperCase(AText);
+  Result := UTF8UpperCase(AText);
 {$ELSE}
  {$IFDEF STRING_IS_UNICODE}
   Result := AnsiUpperCase(AText);
@@ -2575,7 +2575,7 @@ end;
 function UnicodeLowerCase(const AText: TKString): TKString;
 begin
 {$IFDEF FPC}
-  Result := LCLProc.UTF8LowerCase(AText);
+  Result := UTF8LowerCase(AText);
 {$ELSE}
  {$IFDEF STRING_IS_UNICODE}
   Result := AnsiLowerCase(AText);

@@ -1,8 +1,7 @@
 package KControls_RXE2;
 
-{$include ..\..\source\kcontrols.inc}
-
 {$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
 {$ALIGN 8}
 {$ASSERTIONS ON}
 {$BOOLEVAL OFF}
@@ -13,17 +12,19 @@ package KControls_RXE2;
 {$LOCALSYMBOLS ON}
 {$LONGSTRINGS ON}
 {$OPENSTRINGS ON}
-{$OPTIMIZATION ON}
+{$OPTIMIZATION OFF}
 {$OVERFLOWCHECKS ON}
 {$RANGECHECKS ON}
 {$REFERENCEINFO ON}
 {$SAFEDIVIDE OFF}
-{$STACKFRAMES OFF}
+{$STACKFRAMES ON}
 {$TYPEDADDRESS ON}
 {$VARSTRINGCHECKS ON}
 {$WRITEABLECONST ON}
 {$MINENUMSIZE 1}
 {$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
 {$DESCRIPTION 'KControls Development Suite - runtime package'}
 {$RUNONLY}
 {$IMPLICITBUILD ON}
@@ -31,12 +32,7 @@ package KControls_RXE2;
 requires
   vcl,
   vclx,
-  vclimg
-{$IFDEF TKDBGRID_USE}
-  , dbrtl
-  , vcldb
-{$ENDIF}
-  ;
+  vclimg;
 
 contains
   kcontrols in '..\..\source\kcontrols.pas',
@@ -62,10 +58,6 @@ contains
   kmemodlgnumbering in '..\..\source\kmemodlgnumbering.pas',
   kmemodlgparastyle in '..\..\source\kmemodlgparastyle.pas',
   kmemodlgtextstyle in '..\..\source\kmemodlgtextstyle.pas',
-  kpagecontrol in '..\..\source\kpagecontrol.pas'
-{$IFDEF TKDBGRID_USE}
-  , kdbgrids in '..\..\source\kdbgrids.pas'
-{$ENDIF}
-  ;
+  kpagecontrol in '..\..\source\kpagecontrol.pas';
 
 end.
