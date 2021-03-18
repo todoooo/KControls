@@ -2130,6 +2130,9 @@ uses
 {$IFDEF USE_THEMES}
   Themes,
 {$ENDIF}
+{$IFDEF FPC}
+  lazUTF8,
+{$ENDIF}
   Math, KMemoRTF;
 
 {$IFDEF USE_WINAPI}

@@ -443,7 +443,7 @@ implementation
 uses
   Math, SysUtils, KHexEditor, KRes
 {$IFDEF FPC}
-  , LCLProc, LConvEncoding, LCLType
+  , LCLProc, LConvEncoding, LCLType, lazUTF8
 {$ELSE}
   , JPeg, Windows
 {$ENDIF}
