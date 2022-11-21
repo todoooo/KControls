@@ -13,14 +13,14 @@ package KControls_DXE2;
 {$LONGSTRINGS ON}
 {$OPENSTRINGS ON}
 {$OPTIMIZATION OFF}
-{$OVERFLOWCHECKS ON}
-{$RANGECHECKS ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
 {$REFERENCEINFO ON}
 {$SAFEDIVIDE OFF}
 {$STACKFRAMES ON}
-{$TYPEDADDRESS ON}
+{$TYPEDADDRESS OFF}
 {$VARSTRINGCHECKS ON}
-{$WRITEABLECONST ON}
+{$WRITEABLECONST OFF}
 {$MINENUMSIZE 1}
 {$IMAGEBASE $400000}
 {$DEFINE DEBUG}
@@ -31,9 +31,9 @@ package KControls_DXE2;
 
 requires
   dclstd,
-  KControls_RXE2,
   dbrtl,
-  vcldb;
+  vcldb,
+  KControls_RXE2;
 
 contains
   kcontrolsdesign in 'kcontrolsdesign.pas',

@@ -47,10 +47,10 @@
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base)'!=''">
 			<DCC_UsePackage>dbrtl;$(DCC_UsePackage)</DCC_UsePackage>
-			<DCC_DcpOutput>.\XE2\DCP\$(Platform)\$(Config)</DCC_DcpOutput>
-			<DCC_BplOutput>.\XE2\BPL\$(Platform)\$(Config)</DCC_BplOutput>
-			<DCC_UnitSearchPath>..\..\source;C:\Program Files\Embarcadero\RAD Studio\9.0\lib\$(Platform)\$(Config);.\XE2\$(Platform)\$(Config);$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
-			<DCC_DcuOutput>.\XE2\$(Platform)\$(Config)</DCC_DcuOutput>
+			<DCC_DcpOutput>.\XE2\bin\$(Platform)\$(Config)</DCC_DcpOutput>
+			<DCC_BplOutput>.\XE2\bin\$(Platform)\$(Config)</DCC_BplOutput>
+			<DCC_UnitSearchPath>..\..\source;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<DCC_DcuOutput>.\XE2\lib\$(Platform)\$(Config)</DCC_DcuOutput>
 			<DesignOnlyPackage>true</DesignOnlyPackage>
 			<VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
 			<GenPackage>true</GenPackage>
@@ -98,9 +98,9 @@
 				<MainSource>MainSource</MainSource>
 			</DelphiCompile>
 			<DCCReference Include="dclstd.dcp"/>
-			<DCCReference Include="KControls_RXE2.dcp"/>
 			<DCCReference Include="dbrtl.dcp"/>
 			<DCCReference Include="vcldb.dcp"/>
+			<DCCReference Include="KControls_RXE2.dcp"/>
 			<DCCReference Include="kcontrolsdesign.pas"/>
 			<DCCReference Include="kpictureeditor.pas">
 				<Form>KPictureEditForm</Form>
