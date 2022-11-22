@@ -1,7 +1,7 @@
 ﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 		<PropertyGroup>
-			<ProjectGuid>{0C6C81D6-ADD7-4760-9EB4-B9B747EFB4EF}</ProjectGuid>
-			<MainSource>KControls_RXE2.dpk</MainSource>
+			<ProjectGuid>{6A7710A5-12B0-49A4-9159-712D49325C1F}</ProjectGuid>
+			<MainSource>KControls_DXE2.dpk</MainSource>
 			<Base>True</Base>
 			<Config Condition="'$(Config)'==''">Debug</Config>
 			<TargetedPlatforms>1</TargetedPlatforms>
@@ -13,6 +13,11 @@
 		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
 			<Base>true</Base>
 		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+			<Base_Win64>true</Base_Win64>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
 		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
 			<Base_Win32>true</Base_Win32>
 			<CfgParent>Base</CfgParent>
@@ -21,6 +26,12 @@
 		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
 			<Cfg_1>true</Cfg_1>
 			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+			<Cfg_1_Win32>true</Cfg_1_Win32>
+			<CfgParent>Cfg_1</CfgParent>
+			<Cfg_1>true</Cfg_1>
 			<Base>true</Base>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
@@ -35,16 +46,17 @@
 			<Base>true</Base>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base)'!=''">
-			<DCC_DcpOutput>.\XE2\bin\$(Platform)\$(Config)</DCC_DcpOutput>
-			<DCC_BplOutput>.\XE2\bin\$(Platform)\$(Config)</DCC_BplOutput>
-			<DCC_UnitSearchPath>..\..\source;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
-			<DCC_DcuOutput>.\XE2\lib\$(Platform)\$(Config)</DCC_DcuOutput>
-			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_UsePackage>dbrtl;$(DCC_UsePackage)</DCC_UsePackage>
+			<DCC_DcpOutput>.\bin\$(Platform)\$(Config)</DCC_DcpOutput>
+			<DCC_BplOutput>.\bin\$(Platform)\$(Config)</DCC_BplOutput>
+			<DCC_UnitSearchPath>..\..\source;..\..\packages;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<DCC_DcuOutput>.\lib\$(Platform)\$(Config)</DCC_DcuOutput>
+			<DesignOnlyPackage>true</DesignOnlyPackage>
 			<VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
 			<GenPackage>true</GenPackage>
-			<DCC_Description>KControls Development Suite - runtime package</DCC_Description>
-			<DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;Winapi;$(DCC_Namespace)</DCC_Namespace>
-			<RuntimeOnlyPackage>true</RuntimeOnlyPackage>
+			<DCC_Description>KControls Development Suite - design time package</DCC_Description>
+			<DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
 			<VerInfo_Locale>5129</VerInfo_Locale>
 			<DCC_N>false</DCC_N>
 			<DCC_S>false</DCC_S>
@@ -53,17 +65,24 @@
 			<DCC_F>false</DCC_F>
 			<DCC_K>false</DCC_K>
 		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base_Win64)'!=''">
+			<DCC_UsePackage>vcldb;$(DCC_UsePackage)</DCC_UsePackage>
+		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base_Win32)'!=''">
+			<DCC_UsePackage>vcldb;KControls_RXE2;$(DCC_UsePackage)</DCC_UsePackage>
 			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-			<DCC_Namespace>System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+			<DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
 			<VerInfo_Locale>1033</VerInfo_Locale>
-			<VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1)'!=''">
 			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
 			<DCC_DebugInformation>false</DCC_DebugInformation>
 			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
 			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<VerInfo_Locale>1033</VerInfo_Locale>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_2)'!=''">
 			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -78,33 +97,14 @@
 			<DelphiCompile Include="$(MainSource)">
 				<MainSource>MainSource</MainSource>
 			</DelphiCompile>
-			<DCCReference Include="vcl.dcp"/>
-			<DCCReference Include="vclx.dcp"/>
-			<DCCReference Include="vclimg.dcp"/>
-			<DCCReference Include="..\..\source\kcontrols.pas"/>
-			<DCCReference Include="..\..\source\kdialogs.pas"/>
-			<DCCReference Include="..\..\source\keditcommon.pas"/>
-			<DCCReference Include="..\..\source\kfunctions.pas"/>
-			<DCCReference Include="..\..\source\kgraphics.pas"/>
-			<DCCReference Include="..\..\source\kgrids.pas"/>
-			<DCCReference Include="..\..\source\kicon.pas"/>
-			<DCCReference Include="..\..\source\khexeditor.pas"/>
-			<DCCReference Include="..\..\source\kprintpreview.pas"/>
-			<DCCReference Include="..\..\source\kprintsetup.pas"/>
-			<DCCReference Include="..\..\source\kwidewinprocs.pas"/>
-			<DCCReference Include="..\..\source\kbuttons.pas"/>
-			<DCCReference Include="..\..\source\kedits.pas"/>
-			<DCCReference Include="..\..\source\klabels.pas"/>
-			<DCCReference Include="..\..\source\kmemo.pas"/>
-			<DCCReference Include="..\..\source\kmessagebox.pas"/>
-			<DCCReference Include="..\..\source\klog.pas"/>
-			<DCCReference Include="..\..\source\kprogress.pas"/>
-			<DCCReference Include="..\..\source\kres.pas"/>
-			<DCCReference Include="..\..\source\kmemodlghyperlink.pas"/>
-			<DCCReference Include="..\..\source\kmemodlgnumbering.pas"/>
-			<DCCReference Include="..\..\source\kmemodlgparastyle.pas"/>
-			<DCCReference Include="..\..\source\kmemodlgtextstyle.pas"/>
-			<DCCReference Include="..\..\source\kpagecontrol.pas"/>
+			<DCCReference Include="dclstd.dcp"/>
+			<DCCReference Include="dbrtl.dcp"/>
+			<DCCReference Include="vcldb.dcp"/>
+			<DCCReference Include="KControls_RXE2.dcp"/>
+			<DCCReference Include="..\kcontrolsdesign.pas"/>
+			<DCCReference Include="..\kpictureeditor.pas">
+				<Form>KPictureEditForm</Form>
+			</DCCReference>
 			<BuildConfiguration Include="Debug">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>
@@ -123,7 +123,7 @@
 			<BorlandProject>
 				<Delphi.Personality>
 					<Source>
-						<Source Name="MainSource">KControls_RXE2.dpk</Source>
+						<Source Name="MainSource">KControls_DXE2.dpk</Source>
 					</Source>
 					<VersionInfo>
 						<VersionInfo Name="IncludeVerInfo">True</VersionInfo>
@@ -153,12 +153,15 @@
 						<VersionInfoKeys Name="Comments"/>
 					</VersionInfoKeys>
 					<Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\Joe Bloggs\My Documents\workspace\pascal\3rdParty\GUI\KControls\packages\kcontrols\XE2\bin\Win32\Debug\KControls_DXE2.bpl">File C:\Documents and Settings\Joe Bloggs\My Documents\workspace\pascal\3rdParty\GUI\KControls\packages\kcontrols\XE2\bin\Win32\Debug\KControls_DXE2.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\Joe Bloggs\My Documents\RAD Studio\9.0\Bpl\PropertyMediator.bpl">File C:\Documents and Settings\Joe Bloggs\My Documents\RAD Studio\9.0\Bpl\PropertyMediator.bpl not found</Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\dcloffice2k160.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\dclofficexp160.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
 					</Excluded_Packages>
 				</Delphi.Personality>
 				<Platforms>
 					<Platform value="Win64">False</Platform>
+					<Platform value="OSX32">False</Platform>
 					<Platform value="Win32">True</Platform>
 				</Platforms>
 			</BorlandProject>

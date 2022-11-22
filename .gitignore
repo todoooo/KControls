@@ -115,3 +115,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/packages/RAD Studio XE2/bin
+/packages/RAD Studio XE2/lib

@@ -36,7 +36,7 @@ requires
   KControls_RXE2;
 
 contains
-  kcontrolsdesign in 'kcontrolsdesign.pas',
-  kpictureeditor in 'kpictureeditor.pas' {KPictureEditForm};
+  kcontrolsdesign in '..\kcontrolsdesign.pas',
+  kpictureeditor in '..\kpictureeditor.pas' {KPictureEditForm};
 
 end.
