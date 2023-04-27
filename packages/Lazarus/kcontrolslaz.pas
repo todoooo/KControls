@@ -9,10 +9,10 @@ interface
 
 uses
   KFunctions, KGraphics, KControls, KDialogs, KEditCommon, KGrids, KHexEditor, 
-  KIcon, KPrintPreview, KPrintSetup, KWideWinProcs, kcontrolsdesign, KDBGrids, 
-  KEdits, KMessageBox, KLog, KProgress, KLabels, KMemo, KButtons, 
-  KPageControl, KMemoDlgHyperlink, KMemoDlgParaStyle, KMemoDlgTextStyle, 
-  kmemofrm, KMemoRTF, LazarusPackageIntf;
+  KIcon, KPrintPreview, KPrintSetup, KWideWinProcs, KDBGrids, KEdits, 
+  KMessageBox, KLog, KProgress, KLabels, KMemo, KButtons, KPageControl, 
+  KMemoDlgHyperlink, KMemoDlgParaStyle, KMemoDlgTextStyle, kmemofrm, KMemoRTF, 
+  kcontrolsdesign, LazarusPackageIntf;
 
 implementation
 

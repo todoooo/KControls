@@ -118,3 +118,4 @@ $RECYCLE.BIN/
 /packages/RAD Studio XE2/bin
 /packages/RAD Studio XE2/lib
 /lib
+/packages/Lazarus/lib/i386-win32
